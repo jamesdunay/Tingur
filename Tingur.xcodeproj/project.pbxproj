@@ -1,0 +1,512 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		062BF587EF3F12CDF26902CE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ADA37885FE8960A16667FB6 /* libPods.a */; };
+		2947B20F1A699A77002BB726 /* RestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2947B20E1A699A77002BB726 /* RestEngine.m */; };
+		2947B2121A69A05E002BB726 /* ImageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2947B2111A69A05E002BB726 /* ImageService.m */; };
+		2947B2151A69A4F0002BB726 /* TGItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2947B2141A69A4F0002BB726 /* TGItem.m */; };
+		29F998421A6987D70027AD5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F998411A6987D70027AD5A /* main.m */; };
+		29F998451A6987D70027AD5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F998441A6987D70027AD5A /* AppDelegate.m */; };
+		29F998481A6987D70027AD5A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F998471A6987D70027AD5A /* ViewController.m */; };
+		29F9984D1A6987D70027AD5A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29F9984C1A6987D70027AD5A /* Images.xcassets */; };
+		29F998501A6987D70027AD5A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29F9984E1A6987D70027AD5A /* LaunchScreen.xib */; };
+		29F9985C1A6987D70027AD5A /* TingurTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F9985B1A6987D70027AD5A /* TingurTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		29F998561A6987D70027AD5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29F998341A6987D70027AD5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 29F9983B1A6987D70027AD5A;
+			remoteInfo = Tingur;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1ADA37885FE8960A16667FB6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2947B20D1A699A77002BB726 /* RestEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestEngine.h; sourceTree = "<group>"; };
+		2947B20E1A699A77002BB726 /* RestEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestEngine.m; sourceTree = "<group>"; };
+		2947B2101A69A05E002BB726 /* ImageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageService.h; sourceTree = "<group>"; };
+		2947B2111A69A05E002BB726 /* ImageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageService.m; sourceTree = "<group>"; };
+		2947B2131A69A4F0002BB726 /* TGItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGItem.h; sourceTree = "<group>"; };
+		2947B2141A69A4F0002BB726 /* TGItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGItem.m; sourceTree = "<group>"; };
+		29F9983C1A6987D70027AD5A /* Tingur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tingur.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29F998401A6987D70027AD5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29F998411A6987D70027AD5A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29F998431A6987D70027AD5A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		29F998441A6987D70027AD5A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		29F998461A6987D70027AD5A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		29F998471A6987D70027AD5A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		29F9984C1A6987D70027AD5A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		29F9984F1A6987D70027AD5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		29F998551A6987D70027AD5A /* TingurTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TingurTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		29F9985A1A6987D70027AD5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29F9985B1A6987D70027AD5A /* TingurTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TingurTests.m; sourceTree = "<group>"; };
+		8A1A72B0AD8157B19170E38E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		99AA13D187147524B852B0DE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		29F998391A6987D70027AD5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				062BF587EF3F12CDF26902CE /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29F998521A6987D70027AD5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A69A432778926911262D87E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8A1A72B0AD8157B19170E38E /* Pods.debug.xcconfig */,
+				99AA13D187147524B852B0DE /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		20B0F831569E634F11614F02 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1ADA37885FE8960A16667FB6 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2947B2161A69A737002BB726 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2947B2131A69A4F0002BB726 /* TGItem.h */,
+				2947B2141A69A4F0002BB726 /* TGItem.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		2947B2171A69A73F002BB726 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2947B2101A69A05E002BB726 /* ImageService.h */,
+				2947B2111A69A05E002BB726 /* ImageService.m */,
+				2947B20D1A699A77002BB726 /* RestEngine.h */,
+				2947B20E1A699A77002BB726 /* RestEngine.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		29F998331A6987D70027AD5A = {
+			isa = PBXGroup;
+			children = (
+				29F9983E1A6987D70027AD5A /* Tingur */,
+				29F998581A6987D70027AD5A /* TingurTests */,
+				29F9983D1A6987D70027AD5A /* Products */,
+				1A69A432778926911262D87E /* Pods */,
+				20B0F831569E634F11614F02 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		29F9983D1A6987D70027AD5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				29F9983C1A6987D70027AD5A /* Tingur.app */,
+				29F998551A6987D70027AD5A /* TingurTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29F9983E1A6987D70027AD5A /* Tingur */ = {
+			isa = PBXGroup;
+			children = (
+				29F998431A6987D70027AD5A /* AppDelegate.h */,
+				29F998441A6987D70027AD5A /* AppDelegate.m */,
+				29F998461A6987D70027AD5A /* ViewController.h */,
+				29F998471A6987D70027AD5A /* ViewController.m */,
+				2947B2171A69A73F002BB726 /* Services */,
+				2947B2161A69A737002BB726 /* Models */,
+				29F9984C1A6987D70027AD5A /* Images.xcassets */,
+				29F9984E1A6987D70027AD5A /* LaunchScreen.xib */,
+				29F9983F1A6987D70027AD5A /* Supporting Files */,
+			);
+			path = Tingur;
+			sourceTree = "<group>";
+		};
+		29F9983F1A6987D70027AD5A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				29F998401A6987D70027AD5A /* Info.plist */,
+				29F998411A6987D70027AD5A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		29F998581A6987D70027AD5A /* TingurTests */ = {
+			isa = PBXGroup;
+			children = (
+				29F9985B1A6987D70027AD5A /* TingurTests.m */,
+				29F998591A6987D70027AD5A /* Supporting Files */,
+			);
+			path = TingurTests;
+			sourceTree = "<group>";
+		};
+		29F998591A6987D70027AD5A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				29F9985A1A6987D70027AD5A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		29F9983B1A6987D70027AD5A /* Tingur */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29F9985F1A6987D70027AD5A /* Build configuration list for PBXNativeTarget "Tingur" */;
+			buildPhases = (
+				EB4307C40F7CAFAD0661991A /* Check Pods Manifest.lock */,
+				29F998381A6987D70027AD5A /* Sources */,
+				29F998391A6987D70027AD5A /* Frameworks */,
+				29F9983A1A6987D70027AD5A /* Resources */,
+				9FBC6771BFE6525ECB2FBD48 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tingur;
+			productName = Tingur;
+			productReference = 29F9983C1A6987D70027AD5A /* Tingur.app */;
+			productType = "com.apple.product-type.application";
+		};
+		29F998541A6987D70027AD5A /* TingurTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29F998621A6987D70027AD5A /* Build configuration list for PBXNativeTarget "TingurTests" */;
+			buildPhases = (
+				29F998511A6987D70027AD5A /* Sources */,
+				29F998521A6987D70027AD5A /* Frameworks */,
+				29F998531A6987D70027AD5A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				29F998571A6987D70027AD5A /* PBXTargetDependency */,
+			);
+			name = TingurTests;
+			productName = TingurTests;
+			productReference = 29F998551A6987D70027AD5A /* TingurTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29F998341A6987D70027AD5A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = James.Dunay;
+				TargetAttributes = {
+					29F9983B1A6987D70027AD5A = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					29F998541A6987D70027AD5A = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 29F9983B1A6987D70027AD5A;
+					};
+				};
+			};
+			buildConfigurationList = 29F998371A6987D70027AD5A /* Build configuration list for PBXProject "Tingur" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 29F998331A6987D70027AD5A;
+			productRefGroup = 29F9983D1A6987D70027AD5A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				29F9983B1A6987D70027AD5A /* Tingur */,
+				29F998541A6987D70027AD5A /* TingurTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		29F9983A1A6987D70027AD5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29F998501A6987D70027AD5A /* LaunchScreen.xib in Resources */,
+				29F9984D1A6987D70027AD5A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29F998531A6987D70027AD5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9FBC6771BFE6525ECB2FBD48 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB4307C40F7CAFAD0661991A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		29F998381A6987D70027AD5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29F998481A6987D70027AD5A /* ViewController.m in Sources */,
+				29F998451A6987D70027AD5A /* AppDelegate.m in Sources */,
+				29F998421A6987D70027AD5A /* main.m in Sources */,
+				2947B2121A69A05E002BB726 /* ImageService.m in Sources */,
+				2947B2151A69A4F0002BB726 /* TGItem.m in Sources */,
+				2947B20F1A699A77002BB726 /* RestEngine.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29F998511A6987D70027AD5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29F9985C1A6987D70027AD5A /* TingurTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		29F998571A6987D70027AD5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 29F9983B1A6987D70027AD5A /* Tingur */;
+			targetProxy = 29F998561A6987D70027AD5A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		29F9984E1A6987D70027AD5A /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29F9984F1A6987D70027AD5A /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		29F9985D1A6987D70027AD5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		29F9985E1A6987D70027AD5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		29F998601A6987D70027AD5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A1A72B0AD8157B19170E38E /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Tingur/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		29F998611A6987D70027AD5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99AA13D187147524B852B0DE /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Tingur/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		29F998631A6987D70027AD5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TingurTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tingur.app/Tingur";
+			};
+			name = Debug;
+		};
+		29F998641A6987D70027AD5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TingurTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tingur.app/Tingur";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		29F998371A6987D70027AD5A /* Build configuration list for PBXProject "Tingur" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29F9985D1A6987D70027AD5A /* Debug */,
+				29F9985E1A6987D70027AD5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		29F9985F1A6987D70027AD5A /* Build configuration list for PBXNativeTarget "Tingur" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29F998601A6987D70027AD5A /* Debug */,
+				29F998611A6987D70027AD5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		29F998621A6987D70027AD5A /* Build configuration list for PBXNativeTarget "TingurTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29F998631A6987D70027AD5A /* Debug */,
+				29F998641A6987D70027AD5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29F998341A6987D70027AD5A /* Project object */;
+}
