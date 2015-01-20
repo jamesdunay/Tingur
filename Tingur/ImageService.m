@@ -8,6 +8,8 @@
 
 #import "ImageService.h"
 #import "TGItem.h"
+#import "IMGGalleryImage.h"
+#import "IMGGalleryAlbum.h"
 #import "RestEngine.h"
 
 static ImageService *sImageService;
@@ -29,37 +31,27 @@ static ImageService *sImageService;
     sImageService.downloadIndex = 0;
 }
 
--(void)getNextPageAtIndex:(NSInteger)index{
+-(void)getNextPageAtIndex:(NSInteger)index onComplete:(void(^)(NSArray* items))complete{
     
     [[RestEngine sharedSingleton] requestHotGalleryPage:index onComplete:^(NSArray *galleryItems) {
 
         NSMutableArray* currentImages = [self.items mutableCopy];
         
-        [galleryItems enumerateObjectsUsingBlock:^(IMGImage* galleryItem, NSUInteger idx, BOOL *stop) {
-            TGItem* item = [[TGItem alloc] initWithIMGImage:galleryItem];
-            [currentImages addObject:item];
+        [galleryItems enumerateObjectsUsingBlock:^(IMGGalleryImage* galleryItem, NSUInteger idx, BOOL *stop) {
+            
+            if (![galleryItem.class isEqual:[IMGGalleryAlbum class]]) {
+                TGItem* item = [[TGItem alloc] initWithGalleryImage:galleryItem];
+                [currentImages addObject:item];
+            }
         }];
         
         self.items = [currentImages copy];
         self.currentPage++;
         
+        complete(self.items);
     } onFailure:^(NSError *error) {
         
     }];
 }
-
--(void)getNextBatchOfImages:(NSArray*)items{
-    [items enumerateObjectsUsingBlock:^(TGItem* item, NSUInteger idx, BOOL *stop) {
-        [item getURLImage];
-    }];
-}
-
--(void)getImageWithTGItems:(NSArray *)images{
-    //Number of images to grab
-    
-    
-    
-}
-
 
 @end

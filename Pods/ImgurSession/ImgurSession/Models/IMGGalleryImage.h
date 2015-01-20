@@ -15,11 +15,11 @@
 /**
  Model object class to represent images that are posted to the Imgur Gallery. Can be a part of an album. https://api.imgur.com/models/gallery_image 
  */
-@interface IMGGalleryImage : IMGImage <IMGGalleryObjectProtocol>
 
 /**
  Users up or down vote on the image
- */
+ */@interface IMGGalleryImage : IMGImage <IMGGalleryObjectProtocol>
+
 @property (nonatomic, readonly) IMGVoteType vote;
 /**
  Username of submitter if not anon

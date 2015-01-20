@@ -17,12 +17,8 @@
 
 //Grabs full page of IMGImage objects
 //Make TGImages
--(void)getNextPageAtIndex:(NSInteger)index;
+-(void)getNextPageAtIndex:(NSInteger)index onComplete:(void(^)(NSArray* items))complete;
 
-
-//Take imageURL from IMGImage and fetch URL
-//maybe return block? Could come back one at a time, need to think for that
--(void)getImageWithTGItems:(NSArray *)images;
 
 
 @end

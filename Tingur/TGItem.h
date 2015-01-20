@@ -8,14 +8,22 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "IMGImage.h"
+#import "IMGGalleryImage.h"
+
+typedef NS_ENUM(NSInteger, TGVoteType) {
+    TGUpVote = 0,
+    TGNoVote,
+    TGDownVote
+};
 
 @interface TGItem : NSObject
 
-@property(nonatomic, strong)IMGImage* imgImage;
-@property(nonatomic, strong)UIImage* image;
+@property(nonatomic, strong)IMGGalleryImage* galleryImage;
+@property(nonatomic) BOOL isOpened;
+@property(nonatomic) TGVoteType voteType;
 
--(id)initWithIMGImage:(IMGImage*)imgImage;
--(void)getURLImage;
+-(id)initWithGalleryImage:(IMGGalleryImage*)galleryImage;
+-(void)toggleOpened;
+-(NSURL*)getURL;
 
 @end

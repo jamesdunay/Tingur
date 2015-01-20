@@ -17,6 +17,11 @@
 		29F9984D1A6987D70027AD5A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29F9984C1A6987D70027AD5A /* Images.xcassets */; };
 		29F998501A6987D70027AD5A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29F9984E1A6987D70027AD5A /* LaunchScreen.xib */; };
 		29F9985C1A6987D70027AD5A /* TingurTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F9985B1A6987D70027AD5A /* TingurTests.m */; };
+		72183F661A6C641500479D93 /* test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72183F651A6C641500479D93 /* test@2x.png */; };
+		72183F681A6C665800479D93 /* test2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72183F671A6C665800479D93 /* test2@2x.png */; };
+		72183F6A1A6C66D600479D93 /* test3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72183F691A6C66D600479D93 /* test3@2x.png */; };
+		727D63A81A6B80BD0052A946 /* TGTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 727D63A71A6B80BD0052A946 /* TGTableViewCell.m */; };
+		72CBAA0C1A6CDB7C00291375 /* TGVoteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CBAA0B1A6CDB7C00291375 /* TGVoteScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,13 @@
 		29F998551A6987D70027AD5A /* TingurTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TingurTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		29F9985A1A6987D70027AD5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29F9985B1A6987D70027AD5A /* TingurTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TingurTests.m; sourceTree = "<group>"; };
+		72183F651A6C641500479D93 /* test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test@2x.png"; sourceTree = "<group>"; };
+		72183F671A6C665800479D93 /* test2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test2@2x.png"; sourceTree = "<group>"; };
+		72183F691A6C66D600479D93 /* test3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test3@2x.png"; sourceTree = "<group>"; };
+		727D63A61A6B80BD0052A946 /* TGTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGTableViewCell.h; sourceTree = "<group>"; };
+		727D63A71A6B80BD0052A946 /* TGTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGTableViewCell.m; sourceTree = "<group>"; };
+		72CBAA0A1A6CDB7C00291375 /* TGVoteScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGVoteScrollView.h; sourceTree = "<group>"; };
+		72CBAA0B1A6CDB7C00291375 /* TGVoteScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGVoteScrollView.m; sourceTree = "<group>"; };
 		8A1A72B0AD8157B19170E38E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		99AA13D187147524B852B0DE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,10 +144,14 @@
 		29F9983E1A6987D70027AD5A /* Tingur */ = {
 			isa = PBXGroup;
 			children = (
+				72183F691A6C66D600479D93 /* test3@2x.png */,
+				72183F671A6C665800479D93 /* test2@2x.png */,
+				72183F651A6C641500479D93 /* test@2x.png */,
 				29F998431A6987D70027AD5A /* AppDelegate.h */,
 				29F998441A6987D70027AD5A /* AppDelegate.m */,
 				29F998461A6987D70027AD5A /* ViewController.h */,
 				29F998471A6987D70027AD5A /* ViewController.m */,
+				727D63A51A6B808D0052A946 /* Views */,
 				2947B2171A69A73F002BB726 /* Services */,
 				2947B2161A69A737002BB726 /* Models */,
 				29F9984C1A6987D70027AD5A /* Images.xcassets */,
@@ -169,6 +185,17 @@
 				29F9985A1A6987D70027AD5A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		727D63A51A6B808D0052A946 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				727D63A61A6B80BD0052A946 /* TGTableViewCell.h */,
+				727D63A71A6B80BD0052A946 /* TGTableViewCell.m */,
+				72CBAA0A1A6CDB7C00291375 /* TGVoteScrollView.h */,
+				72CBAA0B1A6CDB7C00291375 /* TGVoteScrollView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +249,7 @@
 				TargetAttributes = {
 					29F9983B1A6987D70027AD5A = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = X289FX4242;
 					};
 					29F998541A6987D70027AD5A = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -253,8 +281,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72183F661A6C641500479D93 /* test@2x.png in Resources */,
 				29F998501A6987D70027AD5A /* LaunchScreen.xib in Resources */,
 				29F9984D1A6987D70027AD5A /* Images.xcassets in Resources */,
+				72183F681A6C665800479D93 /* test2@2x.png in Resources */,
+				72183F6A1A6C66D600479D93 /* test3@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,7 +336,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72CBAA0C1A6CDB7C00291375 /* TGVoteScrollView.m in Sources */,
 				29F998481A6987D70027AD5A /* ViewController.m in Sources */,
+				727D63A81A6B80BD0052A946 /* TGTableViewCell.m in Sources */,
 				29F998451A6987D70027AD5A /* AppDelegate.m in Sources */,
 				29F998421A6987D70027AD5A /* main.m in Sources */,
 				2947B2121A69A05E002BB726 /* ImageService.m in Sources */,
@@ -425,9 +458,13 @@
 			baseConfigurationReference = 8A1A72B0AD8157B19170E38E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Tingur/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -436,9 +473,13 @@
 			baseConfigurationReference = 99AA13D187147524B852B0DE /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Tingur/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

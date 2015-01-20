@@ -10,84 +10,25 @@
 
 @implementation TGItem
 
--(id)initWithIMGImage:(IMGImage*)imgImage{
+-(id)initWithGalleryImage:(IMGGalleryImage*)galleryImage{
  
     self = [super init];
     if (self) {
-        self.imgImage = imgImage;
+        self.galleryImage = galleryImage;
+        self.voteType = TGNoVote;
+        NSLog(@"item Size %ld", galleryImage.size);
     }
     return self;
 }
 
-//prbably cache with something like SDWebImage
-//maybe load items into collectionview data source, 
-
-/*
--(void)getURLImage{
- 
-    
-    
-    
-    
-    
-//    NSURLConnection and NSURLRequest.
-    
-    
-    dispatch_async(dispatch_get_global_queue(0,0), ^{
-        NSData * data = [[NSData alloc] initWithContentsOfURL:self.imgImage.url];
-
-        if ( data == nil ) return;
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-//            Push back to main thread
-            
-//          WARNING: is the cell still using the same data by this point??
-//          cell.image = [UIImage imageWithData: data];
-        });
-        
-    });
-}
-*/
-
-
-
-
-
-
-
-/*
-- (void)loadImage:(NSURL *)imageURL
-{
-    NSOperationQueue *queue = [NSOperationQueue new];
-    NSInvocationOperation *operation = [[NSInvocationOperation alloc]
-                                        initWithTarget:self
-                                        selector:@selector(requestRemoteImage:)
-                                        object:imageURL];
-    [queue addOperation:operation];
+-(void)toggleOpened{
+    self.isOpened = self.isOpened ? NO : YES;
 }
 
-- (void)requestRemoteImage:(NSURL *)imageURL
-{
-    NSData *imageData = [[NSData alloc] initWithContentsOfURL:imageURL];
-    UIImage *image = [[UIImage alloc] initWithData:imageData];
+-(NSURL*)getURL{
+//    ^^ will return best sized URL
+    return nil;
     
-    [self performSelectorOnMainThread:@selector(placeImageInUI:) withObject:image waitUntilDone:YES];
+    
 }
-
-- (void)placeImageInUI:(UIImage *)image
-{
-    [_image setImage:image];
-}
-*/
-
-
-
-
-
-
-
-
-
-
-
 @end
