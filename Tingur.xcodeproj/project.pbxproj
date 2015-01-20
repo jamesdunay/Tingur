@@ -22,6 +22,8 @@
 		72183F6A1A6C66D600479D93 /* test3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72183F691A6C66D600479D93 /* test3@2x.png */; };
 		727D63A81A6B80BD0052A946 /* TGTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 727D63A71A6B80BD0052A946 /* TGTableViewCell.m */; };
 		72CBAA0C1A6CDB7C00291375 /* TGVoteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CBAA0B1A6CDB7C00291375 /* TGVoteScrollView.m */; };
+		72FCCD031A6E12180032FD47 /* right_shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FCCD011A6E12180032FD47 /* right_shadow@2x.png */; };
+		72FCCD041A6E12180032FD47 /* left_shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FCCD021A6E12180032FD47 /* left_shadow@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		727D63A71A6B80BD0052A946 /* TGTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGTableViewCell.m; sourceTree = "<group>"; };
 		72CBAA0A1A6CDB7C00291375 /* TGVoteScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGVoteScrollView.h; sourceTree = "<group>"; };
 		72CBAA0B1A6CDB7C00291375 /* TGVoteScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGVoteScrollView.m; sourceTree = "<group>"; };
+		72FCCD011A6E12180032FD47 /* right_shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_shadow@2x.png"; sourceTree = "<group>"; };
+		72FCCD021A6E12180032FD47 /* left_shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_shadow@2x.png"; sourceTree = "<group>"; };
 		8A1A72B0AD8157B19170E38E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		99AA13D187147524B852B0DE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,13 +148,11 @@
 		29F9983E1A6987D70027AD5A /* Tingur */ = {
 			isa = PBXGroup;
 			children = (
-				72183F691A6C66D600479D93 /* test3@2x.png */,
-				72183F671A6C665800479D93 /* test2@2x.png */,
-				72183F651A6C641500479D93 /* test@2x.png */,
 				29F998431A6987D70027AD5A /* AppDelegate.h */,
 				29F998441A6987D70027AD5A /* AppDelegate.m */,
 				29F998461A6987D70027AD5A /* ViewController.h */,
 				29F998471A6987D70027AD5A /* ViewController.m */,
+				72FCCD001A6E120E0032FD47 /* Images */,
 				727D63A51A6B808D0052A946 /* Views */,
 				2947B2171A69A73F002BB726 /* Services */,
 				2947B2161A69A737002BB726 /* Models */,
@@ -196,6 +198,18 @@
 				72CBAA0B1A6CDB7C00291375 /* TGVoteScrollView.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		72FCCD001A6E120E0032FD47 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				72183F691A6C66D600479D93 /* test3@2x.png */,
+				72183F671A6C665800479D93 /* test2@2x.png */,
+				72183F651A6C641500479D93 /* test@2x.png */,
+				72FCCD011A6E12180032FD47 /* right_shadow@2x.png */,
+				72FCCD021A6E12180032FD47 /* left_shadow@2x.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,7 +299,9 @@
 				29F998501A6987D70027AD5A /* LaunchScreen.xib in Resources */,
 				29F9984D1A6987D70027AD5A /* Images.xcassets in Resources */,
 				72183F681A6C665800479D93 /* test2@2x.png in Resources */,
+				72FCCD041A6E12180032FD47 /* left_shadow@2x.png in Resources */,
 				72183F6A1A6C66D600479D93 /* test3@2x.png in Resources */,
+				72FCCD031A6E12180032FD47 /* right_shadow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

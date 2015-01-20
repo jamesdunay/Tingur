@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TGItem.h"
 
 @interface ImageService : NSObject
 
@@ -15,10 +16,7 @@
 @property(nonatomic) NSInteger currentPage;
 @property(nonatomic, strong)NSArray* items;
 
-//Grabs full page of IMGImage objects
-//Make TGImages
 -(void)getNextPageAtIndex:(NSInteger)index onComplete:(void(^)(NSArray* items))complete;
-
-
+-(void)getBestImageForItem:(TGItem*)item OnComplete:(void(^)(NSObject* image))complete;
 
 @end

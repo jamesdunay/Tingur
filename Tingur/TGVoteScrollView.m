@@ -10,8 +10,8 @@
 
 @interface TGVoteScrollView()
 
-@property(nonatomic, strong)UIView* left;
-@property(nonatomic, strong)UIView* right;
+@property(nonatomic, strong)UIImageView* left;
+@property(nonatomic, strong)UIImageView* right;
 
 @property(nonatomic, strong)UILabel* upVoteLabel;
 @property(nonatomic, strong)UILabel* downVoteLabel;
@@ -29,28 +29,32 @@
         
         self.delegate = self;
         
-        self.left = [[UIView alloc] init];
+        self.left = [[UIImageView alloc] init];
         self.left.translatesAutoresizingMaskIntoConstraints = NO;
         self.left.backgroundColor = [UIColor clearColor];
+        self.left.image = [UIImage imageNamed:@"left_shadow.png"];
         [self addSubview:self.left];
         
-        self.right = [[UIView alloc] init];
+        self.right = [[UIImageView alloc] init];
         self.right.translatesAutoresizingMaskIntoConstraints = NO;
         self.right.backgroundColor = [UIColor clearColor];
+        self.right.image = [UIImage imageNamed:@"right_shadow.png"];
         [self addSubview:self.right];
         
         self.upVoteLabel = [[UILabel alloc] init];
         self.upVoteLabel.text = @"UP VOTED";
+        self.upVoteLabel.font = [UIFont boldSystemFontOfSize:20];
         self.upVoteLabel.translatesAutoresizingMaskIntoConstraints = NO;
         self.upVoteLabel.textAlignment = NSTextAlignmentLeft;
-        self.upVoteLabel.textColor = [UIColor whiteColor];
+        self.upVoteLabel.textColor = [UIColor greenColor];
         [self.right addSubview:self.upVoteLabel];
         
         self.downVoteLabel = [[UILabel alloc] init];
         self.downVoteLabel.text = @"DOWN VOTED";
+        self.downVoteLabel.font = [UIFont boldSystemFontOfSize:20];
         self.downVoteLabel.translatesAutoresizingMaskIntoConstraints = NO;
         self.downVoteLabel.textAlignment = NSTextAlignmentRight;
-        self.downVoteLabel.textColor = [UIColor whiteColor];
+        self.downVoteLabel.textColor = [UIColor redColor];
         [self.left addSubview:self.downVoteLabel];
         
     }
@@ -90,10 +94,10 @@
     [constraints addObject:[NSLayoutConstraint constraintWithItem:self.left
                                                         attribute:NSLayoutAttributeHeight
                                                         relatedBy:NSLayoutRelationEqual
-                                                           toItem:nil
-                                                        attribute:NSLayoutAttributeNotAnAttribute
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeHeight
                                                        multiplier:1.f
-                                                         constant:70.f
+                                                         constant:0.f
                             ]];
     
     [constraints addObject:[NSLayoutConstraint constraintWithItem:self.right
@@ -108,10 +112,10 @@
     [constraints addObject:[NSLayoutConstraint constraintWithItem:self.right
                                                         attribute:NSLayoutAttributeHeight
                                                         relatedBy:NSLayoutRelationEqual
-                                                           toItem:nil
-                                                        attribute:NSLayoutAttributeNotAnAttribute
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeHeight
                                                        multiplier:1.f
-                                                         constant:70.f
+                                                         constant:0.f
                             ]];
     
     return [constraints copy];
@@ -222,10 +226,12 @@
     
     if (pagePostion > 1.f) {
         self.upVoteXPosLayoutAttribute.constant = adjustment + 24;
+//       ^^ + 24 font size adjustment
     }
     
     if (pagePostion < 1.f) {
-        self.downVoteXPosLayoutAttribute.constant = adjustment;
+        self.downVoteXPosLayoutAttribute.constant = adjustment + 12;
+//       ^^ + 24 font size adjustment
     }
 }
 

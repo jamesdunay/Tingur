@@ -8,11 +8,9 @@
 
 #import "TGTableViewCell.h"
 #import "TGVoteScrollView.h"
-
 #import "FLAnimatedImage.h"
 #import "FLAnimatedImageView.h"
-
-#import <SDWebImage/UIImageView+WebCache.h>
+#import "ImageService.h"
 
 @interface TGTableViewCell()
 
@@ -38,7 +36,7 @@
  
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-    
+        
         self.backgroundColor = [UIColor blackColor];
         self.clipsToBounds = YES;
         
@@ -46,7 +44,7 @@
         
         self.contentImageView = [[FLAnimatedImageView alloc] init];
         self.contentImageView.translatesAutoresizingMaskIntoConstraints = NO;
-        self.contentImageView.backgroundColor = [UIColor purpleColor];
+        self.contentImageView.backgroundColor = [UIColor clearColor];
 //        self.testImage.image = [UIImage imageNamed:@"test3.png"];
         self.contentImageView.contentMode = UIViewContentModeScaleAspectFill;
         [self.contentView addSubview:self.contentImageView];
@@ -83,6 +81,7 @@
 
 
 -(void)updateConstraints{
+    
     if (!self.hasSetInitialConstraints) {
         [self.contentView addConstraints:[self defaultConstraints]];
         self.hasSetInitialConstraints = YES;
@@ -103,7 +102,7 @@
                                                                                views:NSDictionaryOfVariableBindings(_scrollView)
                                       ]];
     
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-5-[_scrollView]-5-|"
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_scrollView]|"
                                                                              options:0
                                                                              metrics:nil
                                                                                views:NSDictionaryOfVariableBindings(_scrollView)
@@ -177,6 +176,7 @@
 }
 
 -(void)adjustConstraintsForNewImageSize:(CGSize)imageSize{
+    NSLog(@"Size : %@", NSStringFromCGSize(imageSize));
     CGFloat imageViewHeight = (320.f/imageSize.width) * imageSize.height;
     
     self.imageViewHeightConstraint.constant = imageViewHeight;
@@ -198,39 +198,23 @@
     [self setVoteDisplay:item.voteType];
 }
 
--(NSURL*)imageURL{
-    if (self.imageIsAnimatedAndGif) return self.item.galleryImage.url;
-    else return [self.item.galleryImage URLWithSize:IMGMediumThumbnailSize];
-}
-
--(BOOL)imageIsAnimatedAndGif{
-    if (self.item.galleryImage.animated && [self.item.galleryImage.type isEqualToString:@"image/gif"]) {
-        return YES;
-    }else{
-        return NO;
-    }
-}
 
 #pragma Mark Requests ----
 
 -(void)requestImage{
-    self.contentImageView.animatedImage = nil;
-    self.contentImageView.image = nil;
-    
-    if (self.imageIsAnimatedAndGif) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            FLAnimatedImage *gifImage = [[FLAnimatedImage alloc] initWithAnimatedGIFData:[NSData dataWithContentsOfURL:self.imageURL]];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.contentImageView.animatedImage = gifImage;
-                CGSize imageSize = CGSizeMake(self.item.galleryImage.width, self.item.galleryImage.height);
-                [self adjustConstraintsForNewImageSize:imageSize];
-            });
-        });
-    }else{
-        [self.contentImageView sd_setImageWithURL:self.imageURL placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            [self adjustConstraintsForNewImageSize:image.size];
-        }];
-    }
+    [[ImageService sharedSingleton] getBestImageForItem:self.item OnComplete:^(NSObject *image) {
+        if(image){
+            if ([image isKindOfClass:[UIImage class]]) {
+                UIImage* staticImage = (UIImage*)image;
+                self.contentImageView.image = staticImage;
+                [self adjustConstraintsForNewImageSize:staticImage.size];
+            }else{
+                FLAnimatedImage* animatedImage = (FLAnimatedImage*)image;
+                self.contentImageView.animatedImage = animatedImage;
+                [self adjustConstraintsForNewImageSize:animatedImage.size];
+            }
+        }
+    }];
 }
 
 
@@ -239,6 +223,8 @@
 - (void)userTappedCell{
     NSLog(@"URL : %@", self.item.galleryImage.url);
     self.onCellTap();
+    if(!self.item.fullSizedImageIsInCache) [self requestImage];
+    [self setNeedsUpdateConstraints];
 }
 
 -(void)setVoteDisplay:(TGVoteType)voteType{

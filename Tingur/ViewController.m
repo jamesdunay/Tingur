@@ -70,7 +70,7 @@ static CGFloat defaultCellHeight = 80.f;
     
     //ADD Paging when active...?
     
-    TGTableViewCell *cell = (TGTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"cell"];
+    __block TGTableViewCell *cell = (TGTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"cell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     TGItem* item = self.items[indexPath.row];
@@ -101,8 +101,9 @@ static CGFloat defaultCellHeight = 80.f;
         
         //toggle state change for cell's display
         [item toggleOpened];
-        
+                
 //      tableView.scrollEnabled = NO;
+//      ^^ Disable scrolling to allow scrollview for image content
         
     }];
     

@@ -7,7 +7,7 @@
 //
 
 #import "ImageService.h"
-#import "TGItem.h"
+
 #import "IMGGalleryImage.h"
 #import "IMGGalleryAlbum.h"
 #import "RestEngine.h"
@@ -53,5 +53,45 @@ static ImageService *sImageService;
         
     }];
 }
+
+-(void)getBestImageForItem:(TGItem*)item OnComplete:(void(^)(NSObject* image))complete{
+    
+    UIImage* image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[item.galleryImage.url absoluteString]];
+    if (image) {
+//   ^^ check to see if large image is already cached
+        complete(image);
+        return;
+    }
+    
+    if (item.isOpened) {
+            if (item.imageIsAnimatedAndGif){
+                [[RestEngine sharedSingleton] getAnimatedGifWithURL:item.galleryImage.url
+                                                         onComplete:^(FLAnimatedImage *image) {
+                                                             complete(image);
+                                                         } onFailure:^{
+                                                             
+                                                         }];
+            }else{
+                [[RestEngine sharedSingleton] getStaticImageWithURL:item.galleryImage.url
+                                                         onComplete:^(UIImage *image) {
+                                                             complete(image);
+                                                           [[SDImageCache sharedImageCache] removeImageForKey:[item.mediumImageURL absoluteString] fromDisk:YES];
+//                                                            ^^ Remove medium image from cache once large has been loaded
+                                                         } onFailure:^{
+                                                             
+                                                         }];
+            }
+        return;
+    }else{
+        [[RestEngine sharedSingleton] getStaticImageWithURL:item.mediumImageURL
+                                                 onComplete:^(UIImage *image) {
+                                                     complete(image);
+                                                 } onFailure:^{
+            
+                                                 }];
+        return;
+    }
+}
+
 
 @end

@@ -11,14 +11,6 @@
 #import "IMGGalleryRequest.h"
 #import "RestEngine.h"
 
-
-//E-TAGS
-
-
-//Gallery service
-//    holds all images
-
-
 static RestEngine *sRestEngine;
 
 @implementation RestEngine
@@ -41,5 +33,38 @@ static RestEngine *sRestEngine;
     }];
 }
 
+
+-(void)getStaticImageWithURL:(NSURL*)url onComplete:(void(^)(UIImage* image))complete onFailure:(void(^)(void))failure{
+    
+    [[SDWebImageManager sharedManager] downloadImageWithURL:url options:0
+                                                   progress:^(NSInteger receivedSize, NSInteger expectedSize){
+                                                       
+                                                   }completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                                                       if(image){
+//                                                      ^^ Hand-check image, occasionally a missing image link will be returned.
+//                                                      ^^ Could remove image from stack, leave it alone for now.
+                                                           complete(image);
+                                                       }else{
+                                                           failure();
+                                                       }
+                                                   }];
+}
+
+-(void)getAnimatedGifWithURL:(NSURL*)url onComplete:(void(^)(FLAnimatedImage* image))complete onFailure:(void(^)(void))failure{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+//      Test gif url http://i.giphy.com/7MZ0v9KynmiSA.gif
+        
+        FLAnimatedImage *gifImage = [[FLAnimatedImage alloc] initWithAnimatedGIFData:[NSData dataWithContentsOfURL:url]];
+//       ^^ Doesnt handle some Imgur gif's, something seems to be up with the decoding (Probably on FL's end).
+//       ^^ On occastion the URL provided will only point to a static image or an image that is of type public.jpeg, which causes FLAnimatedImage to spit out some VERBOSE errors..
+        
+        if (gifImage) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                complete(gifImage);
+            });
+        }
+    });
+}
 
 @end
