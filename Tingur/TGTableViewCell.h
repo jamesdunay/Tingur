@@ -18,8 +18,6 @@ typedef void (^OnVote)(TGVoteType voteType);
 @property (nonatomic, copy) OnVote onVote;
 @property (nonatomic, copy) TGItem* item;
 
-@property (nonatomic)CGRect restingFrame;
-
 -(void)setVoteDisplay:(TGVoteType)voteType;
 -(void)adjustYImageOffsetWithVerticalPercentage:(CGFloat)percent;
 -(void)userTappedCell;

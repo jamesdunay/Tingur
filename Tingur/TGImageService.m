@@ -19,7 +19,7 @@ static TGImageService *sImageService;
 
 @implementation TGImageService
 
-+ (TGImageService *)sharedSingleton {
++ (TGImageService *)sharedInstance {
     return sImageService;
 }
 
@@ -47,7 +47,7 @@ static TGImageService *sImageService;
 
 -(void)getNextPageOnComplete:(void(^)(NSArray* items))complete{
     
-    [[TGRestEngine sharedSingleton] requestHotGalleryPage:self.currentPage onComplete:^(NSArray *galleryItems) {
+    [[TGRestEngine sharedInstance] requestHotGalleryPage:self.currentPage onComplete:^(NSArray *galleryItems) {
         NSMutableArray* currentImages = [self.items mutableCopy];
         [galleryItems enumerateObjectsUsingBlock:^(IMGGalleryImage* galleryItem, NSUInteger idx, BOOL *stop) {
             if (![galleryItem.class isEqual:[IMGGalleryAlbum class]]) {
@@ -81,14 +81,14 @@ static TGImageService *sImageService;
     
     if (item.isOpened) {
             if (item.imageIsAnimatedAndGif){
-                [[TGRestEngine sharedSingleton] getAnimatedGifWithURL:item.galleryImage.url
+                [[TGRestEngine sharedInstance] getAnimatedGifWithURL:item.galleryImage.url
                                                          onComplete:^(FLAnimatedImage *image) {
                                                              complete(image);
                                                          } onFailure:^{
 //                                                          Future Improvement -- Should handle failure, probably best with some sort of image for the user, as is done on Imgur's site
                                                          }];
             }else{
-                [[TGRestEngine sharedSingleton] getStaticImageWithURL:item.galleryImage.url
+                [[TGRestEngine sharedInstance] getStaticImageWithURL:item.galleryImage.url
                                                          onComplete:^(UIImage *image) {
                                                              complete(image);
                                                            [[SDImageCache sharedImageCache] removeImageForKey:[item.thumbnailURL absoluteString] fromDisk:YES];
@@ -99,7 +99,7 @@ static TGImageService *sImageService;
             }
         return;
     }else{
-        [[TGRestEngine sharedSingleton] getStaticImageWithURL:item.thumbnailURL
+        [[TGRestEngine sharedInstance] getStaticImageWithURL:item.thumbnailURL
                                                  onComplete:^(UIImage *image) {
                                                      complete(image);
                                                  } onFailure:^{

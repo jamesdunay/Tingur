@@ -15,7 +15,7 @@ static TGRestEngine *sRestEngine;
 
 @implementation TGRestEngine
 
-+ (TGRestEngine *)sharedSingleton {
++ (TGRestEngine *)sharedInstance {
     return sRestEngine;
 }
 

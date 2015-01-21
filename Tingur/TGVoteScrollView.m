@@ -7,7 +7,7 @@
 //
 
 #import "TGVoteScrollView.h"
-#import "ColorWithHexString.h"
+
 
 @interface TGVoteScrollView()
 
@@ -32,16 +32,14 @@
         
         self.left = [[UIImageView alloc] init];
         self.left.translatesAutoresizingMaskIntoConstraints = NO;
-        self.left.backgroundColor = [UIColor blackColor];
+        self.left.backgroundColor = [UIColor colorWithRed:51.f/255.f green:12.f/255.f blue:20.f/255.f alpha:1.f];
         self.left.alpha = .9f;
 //        self.left.image = [UIImage imageNamed:@"left_shadow.png"];
         [self addSubview:self.left];
         
         self.right = [[UIImageView alloc] init];
         self.right.translatesAutoresizingMaskIntoConstraints = NO;
-        
-//        1C3A24
-        self.right.backgroundColor = [UIColor ];
+        self.right.backgroundColor = [UIColor colorWithRed:33.f/255.f green:211.f/255.f blue:17.f/255.f alpha:1.f];
 //        self.right.image = [UIImage imageNamed:@"right_shadow.png"];
         self.right.alpha = .7f;
         [self addSubview:self.right];
@@ -102,7 +100,7 @@
                                                            toItem:nil
                                                         attribute:NSLayoutAttributeNotAnAttribute
                                                        multiplier:1.f
-                                                         constant:20.f
+                                                         constant:30.f
                             ]];
     
     [constraints addObject:[NSLayoutConstraint constraintWithItem:self.right
@@ -120,7 +118,7 @@
                                                            toItem:nil
                                                         attribute:NSLayoutAttributeNotAnAttribute
                                                        multiplier:1.f
-                                                         constant:20.f
+                                                         constant:45.f
                             ]];
     
     return [constraints copy];

@@ -13,7 +13,7 @@
 
 @interface TGRestEngine : NSObject <IMGSessionDelegate>
 
-+ (TGRestEngine *)sharedSingleton;
++ (TGRestEngine *)sharedInstance;
 
 -(void)requestHotGalleryPage:(NSInteger)pageIndex onComplete:(void(^)(NSArray* galleryItems))completed onFailure:(void(^)(NSError* error))failed;
 -(void)getStaticImageWithURL:(NSURL*)url onComplete:(void(^)(UIImage* image))complete onFailure:(void(^)(void))failure;
