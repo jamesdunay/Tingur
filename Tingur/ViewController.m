@@ -12,19 +12,14 @@
 #import "TGTableViewCell.h"
 #import "TGItem.h"
 
-
-//NEED TO CHECK FOR NIL ____ when pulling in data
-
-static CGFloat defaultCellHeight = 80.f;
+static CGFloat defaultCellHeight = 120.f;
 
 @interface ViewController ()
 
 @property(nonatomic, strong)UITableView* tableView;
 @property(nonatomic, strong)NSArray* items;
 @property(nonatomic, strong)NSIndexPath* selectedIndex;
-
 @property(nonatomic) CGPoint offsetAtTap;
-
 @property(nonatomic)BOOL isExpanding;
 
 @end
@@ -34,11 +29,6 @@ static CGFloat defaultCellHeight = 80.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[ImageService sharedSingleton] getNextPageAtIndex:[[ImageService sharedSingleton] currentPage] onComplete:^(NSArray *items) {
-        self.items = items;
-        [self.tableView reloadData];
-    }];
-
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     [self.tableView registerClass:[TGTableViewCell class] forCellReuseIdentifier:@"cell"];
     self.tableView.delegate = self;
@@ -47,9 +37,9 @@ static CGFloat defaultCellHeight = 80.f;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.view addSubview:self.tableView];
-    
     self.view.backgroundColor = [UIColor blackColor];
     
+    [self getNewPage];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -67,8 +57,9 @@ static CGFloat defaultCellHeight = 80.f;
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
-    //ADD Paging when active...?
+    if ([[ImageService sharedSingleton] shouldUpdateData:indexPath.row]) {
+        [self getNewPage];
+    }
     
     __block TGTableViewCell *cell = (TGTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"cell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -120,6 +111,15 @@ static CGFloat defaultCellHeight = 80.f;
     return cell;
 }
 
+-(void)getNewPage{
+    [[ImageService sharedSingleton] getNextPageOnComplete:^(NSArray *items) {
+        self.items = items;
+        [self.tableView reloadData];
+    }];
+}
+
+#pragma Mark Delegates
+
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
     [[self.tableView visibleCells] enumerateObjectsUsingBlock:^(TGTableViewCell* cell, NSUInteger idx, BOOL *stop) {
@@ -129,7 +129,7 @@ static CGFloat defaultCellHeight = 80.f;
 }
 
 
-#pragma Helpers
+#pragma Mark Helpers
 
 -(CGFloat)getVerticalPercentageWithPointInView:(CGPoint)pointInView{
     return pointInView.y/self.view.frame.size.height;

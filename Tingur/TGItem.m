@@ -26,8 +26,8 @@
     self.isOpened = self.isOpened ? NO : YES;
 }
 
--(NSURL*)mediumImageURL{
-    return [self.galleryImage URLWithSize:IMGMediumThumbnailSize];
+-(NSURL*)thumbNailURL{
+    return [self.galleryImage URLWithSize:IMGLargeThumbnailSize];
 }
 
 -(BOOL)imageIsAnimatedAndGif{

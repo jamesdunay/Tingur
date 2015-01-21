@@ -31,19 +31,19 @@
         
         self.left = [[UIImageView alloc] init];
         self.left.translatesAutoresizingMaskIntoConstraints = NO;
-        self.left.backgroundColor = [UIColor clearColor];
-        self.left.image = [UIImage imageNamed:@"left_shadow.png"];
+        self.left.backgroundColor = [UIColor blackColor];
+//        self.left.image = [UIImage imageNamed:@"left_shadow.png"];
         [self addSubview:self.left];
         
         self.right = [[UIImageView alloc] init];
         self.right.translatesAutoresizingMaskIntoConstraints = NO;
-        self.right.backgroundColor = [UIColor clearColor];
-        self.right.image = [UIImage imageNamed:@"right_shadow.png"];
+        self.right.backgroundColor = [UIColor blackColor];
+//        self.right.image = [UIImage imageNamed:@"right_shadow.png"];
         [self addSubview:self.right];
         
         self.upVoteLabel = [[UILabel alloc] init];
         self.upVoteLabel.text = @"UP VOTED";
-        self.upVoteLabel.font = [UIFont boldSystemFontOfSize:20];
+        self.upVoteLabel.font = [UIFont boldSystemFontOfSize:9];
         self.upVoteLabel.translatesAutoresizingMaskIntoConstraints = NO;
         self.upVoteLabel.textAlignment = NSTextAlignmentLeft;
         self.upVoteLabel.textColor = [UIColor greenColor];
@@ -51,7 +51,7 @@
         
         self.downVoteLabel = [[UILabel alloc] init];
         self.downVoteLabel.text = @"DOWN VOTED";
-        self.downVoteLabel.font = [UIFont boldSystemFontOfSize:20];
+        self.downVoteLabel.font = [UIFont boldSystemFontOfSize:9];
         self.downVoteLabel.translatesAutoresizingMaskIntoConstraints = NO;
         self.downVoteLabel.textAlignment = NSTextAlignmentRight;
         self.downVoteLabel.textColor = [UIColor redColor];
@@ -83,10 +83,10 @@
                                       ]];
     
     [constraints addObject:[NSLayoutConstraint constraintWithItem:self.left
-                                                        attribute:NSLayoutAttributeCenterY
+                                                        attribute:NSLayoutAttributeTop
                                                         relatedBy:NSLayoutRelationEqual
                                                            toItem:self
-                                                        attribute:NSLayoutAttributeCenterY
+                                                        attribute:NSLayoutAttributeTop
                                                        multiplier:1.f
                                                          constant:0.f
                             ]];
@@ -94,28 +94,28 @@
     [constraints addObject:[NSLayoutConstraint constraintWithItem:self.left
                                                         attribute:NSLayoutAttributeHeight
                                                         relatedBy:NSLayoutRelationEqual
+                                                           toItem:nil
+                                                        attribute:NSLayoutAttributeNotAnAttribute
+                                                       multiplier:1.f
+                                                         constant:20.f
+                            ]];
+    
+    [constraints addObject:[NSLayoutConstraint constraintWithItem:self.right
+                                                        attribute:NSLayoutAttributeTop
+                                                        relatedBy:NSLayoutRelationEqual
                                                            toItem:self
-                                                        attribute:NSLayoutAttributeHeight
+                                                        attribute:NSLayoutAttributeTop
                                                        multiplier:1.f
                                                          constant:0.f
                             ]];
     
     [constraints addObject:[NSLayoutConstraint constraintWithItem:self.right
-                                                        attribute:NSLayoutAttributeCenterY
-                                                        relatedBy:NSLayoutRelationEqual
-                                                           toItem:self
-                                                        attribute:NSLayoutAttributeCenterY
-                                                       multiplier:1.f
-                                                         constant:0.f
-                            ]];
-    
-    [constraints addObject:[NSLayoutConstraint constraintWithItem:self.right
                                                         attribute:NSLayoutAttributeHeight
                                                         relatedBy:NSLayoutRelationEqual
-                                                           toItem:self
-                                                        attribute:NSLayoutAttributeHeight
+                                                           toItem:nil
+                                                        attribute:NSLayoutAttributeNotAnAttribute
                                                        multiplier:1.f
-                                                         constant:0.f
+                                                         constant:20.f
                             ]];
     
     return [constraints copy];
@@ -222,15 +222,15 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
 
     CGFloat pagePostion = scrollView.contentOffset.x/320;
-    CGFloat adjustment = ((pagePostion - 1) * 320)/1.7f;
+    CGFloat adjustment = ((pagePostion - 1) * 320)/1.4f;
     
     if (pagePostion > 1.f) {
-        self.upVoteXPosLayoutAttribute.constant = adjustment + 24;
+        self.upVoteXPosLayoutAttribute.constant = adjustment;
 //       ^^ + 24 font size adjustment
     }
     
     if (pagePostion < 1.f) {
-        self.downVoteXPosLayoutAttribute.constant = adjustment + 12;
+        self.downVoteXPosLayoutAttribute.constant = adjustment;
 //       ^^ + 24 font size adjustment
     }
 }

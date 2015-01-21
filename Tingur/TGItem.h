@@ -24,8 +24,10 @@ typedef NS_ENUM(NSInteger, TGVoteType) {
 
 -(id)initWithGalleryImage:(IMGGalleryImage*)galleryImage;
 -(void)toggleOpened;
--(NSURL*)mediumImageURL;
+
 -(BOOL)imageIsAnimatedAndGif;
 -(BOOL)fullSizedImageIsInCache;
+
+-(NSURL*)thumbNailURL;
 
 @end

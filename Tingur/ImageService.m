@@ -7,7 +7,6 @@
 //
 
 #import "ImageService.h"
-
 #import "IMGGalleryImage.h"
 #import "IMGGalleryAlbum.h"
 #import "RestEngine.h"
@@ -31,9 +30,13 @@ static ImageService *sImageService;
     sImageService.downloadIndex = 0;
 }
 
--(void)getNextPageAtIndex:(NSInteger)index onComplete:(void(^)(NSArray* items))complete{
+-(BOOL)shouldUpdateData:(NSInteger)activeIndex{
+    return self.items.count - activeIndex < 10;
+}
+
+-(void)getNextPageOnComplete:(void(^)(NSArray* items))complete{
     
-    [[RestEngine sharedSingleton] requestHotGalleryPage:index onComplete:^(NSArray *galleryItems) {
+    [[RestEngine sharedSingleton] requestHotGalleryPage:self.currentPage onComplete:^(NSArray *galleryItems) {
 
         NSMutableArray* currentImages = [self.items mutableCopy];
         
@@ -45,10 +48,11 @@ static ImageService *sImageService;
             }
         }];
         
-        self.items = [currentImages copy];
-        self.currentPage++;
-        
-        complete(self.items);
+        if(galleryItems.count){
+            self.items = [currentImages copy];
+            self.currentPage++;
+            complete(self.items);
+        }
     } onFailure:^(NSError *error) {
         
     }];
@@ -75,7 +79,7 @@ static ImageService *sImageService;
                 [[RestEngine sharedSingleton] getStaticImageWithURL:item.galleryImage.url
                                                          onComplete:^(UIImage *image) {
                                                              complete(image);
-                                                           [[SDImageCache sharedImageCache] removeImageForKey:[item.mediumImageURL absoluteString] fromDisk:YES];
+                                                           [[SDImageCache sharedImageCache] removeImageForKey:[item.thumbNailURL absoluteString] fromDisk:YES];
 //                                                            ^^ Remove medium image from cache once large has been loaded
                                                          } onFailure:^{
                                                              
@@ -83,7 +87,7 @@ static ImageService *sImageService;
             }
         return;
     }else{
-        [[RestEngine sharedSingleton] getStaticImageWithURL:item.mediumImageURL
+        [[RestEngine sharedSingleton] getStaticImageWithURL:item.thumbNailURL
                                                  onComplete:^(UIImage *image) {
                                                      complete(image);
                                                  } onFailure:^{

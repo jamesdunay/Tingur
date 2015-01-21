@@ -16,7 +16,9 @@
 @property(nonatomic) NSInteger currentPage;
 @property(nonatomic, strong)NSArray* items;
 
--(void)getNextPageAtIndex:(NSInteger)index onComplete:(void(^)(NSArray* items))complete;
+-(BOOL)shouldUpdateData:(NSInteger)activeIndex;
+
+-(void)getNextPageOnComplete:(void(^)(NSArray* items))complete;
 -(void)getBestImageForItem:(TGItem*)item OnComplete:(void(^)(NSObject* image))complete;
 
 @end

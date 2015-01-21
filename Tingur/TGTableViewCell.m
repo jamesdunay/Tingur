@@ -11,21 +11,22 @@
 #import "FLAnimatedImage.h"
 #import "FLAnimatedImageView.h"
 #import "ImageService.h"
+#import "TGGifTagView.h"
 
 @interface TGTableViewCell()
 
 @property(nonatomic, strong)TGVoteScrollView* scrollView;
-
 @property(nonatomic, strong)FLAnimatedImageView* contentImageView;
+@property(nonatomic, strong)TGGifTagView* gifTagView;
 
-@property(nonatomic, strong)NSLayoutConstraint* testImageCenterY;
-
+@property(nonatomic, strong)NSLayoutConstraint* imageViewCenterY;
 @property(nonatomic, strong)NSLayoutConstraint* imageViewHeightConstraint;
 @property(nonatomic, strong)NSLayoutConstraint* imageViewWidthConstratint;
 
+@property(nonatomic, strong)FLAnimatedImageView* loader;
+@property(nonatomic)CGAffineTransform baseLoaderTransform;
 
 @property(nonatomic) CGFloat currentImageYOffset;
-
 @property(nonatomic)BOOL hasSetInitialConstraints;
 
 @end
@@ -45,7 +46,6 @@
         self.contentImageView = [[FLAnimatedImageView alloc] init];
         self.contentImageView.translatesAutoresizingMaskIntoConstraints = NO;
         self.contentImageView.backgroundColor = [UIColor clearColor];
-//        self.testImage.image = [UIImage imageNamed:@"test3.png"];
         self.contentImageView.contentMode = UIViewContentModeScaleAspectFill;
         [self.contentView addSubview:self.contentImageView];
         
@@ -61,6 +61,23 @@
         
         UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc ] initWithTarget:self action:@selector(userTappedCell)];
         [self.scrollView addGestureRecognizer:tap];
+        
+        
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"loader3" ofType: @"gif"];
+        NSData *gifData = [NSData dataWithContentsOfFile:filePath];
+        
+        FLAnimatedImage* gifImage = [[FLAnimatedImage alloc] initWithAnimatedGIFData:gifData];
+        
+        self.loader = [[FLAnimatedImageView alloc] init];
+        self.loader.animatedImage = gifImage;
+        self.loader.contentMode = UIViewContentModeScaleAspectFit;
+        self.loader.translatesAutoresizingMaskIntoConstraints = NO;
+        self.baseLoaderTransform = self.loader.transform;
+        [self.contentView addSubview:self.loader];
+        
+        self.gifTagView = [[TGGifTagView alloc] init];
+        self.gifTagView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.contentView addSubview:self.gifTagView];
         
         [self updateConstraintsIfNeeded];
         
@@ -108,8 +125,45 @@
                                                                                views:NSDictionaryOfVariableBindings(_scrollView)
                                       ]];
     
-    if (!self.testImageCenterY) {
-        [self setTestImageCenterY:[NSLayoutConstraint constraintWithItem:self.contentImageView
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(>=0)-[_loader]-(>=0)-|"
+                                                                             options:0
+                                                                             metrics:nil
+                                                                               views:NSDictionaryOfVariableBindings(_loader)
+                                      ]];
+    
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[_loader]-(>=0)-|"
+                                                                             options:0
+                                                                             metrics:nil
+                                                                               views:NSDictionaryOfVariableBindings(_loader)
+                                      ]];
+    
+    [constraints addObject:[NSLayoutConstraint constraintWithItem:self.loader
+                                                        attribute:NSLayoutAttributeCenterX
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.contentView
+                                                        attribute:NSLayoutAttributeCenterX
+                                                       multiplier:1.f
+                                                         constant:0.f
+                            ]];
+    [constraints addObject:[NSLayoutConstraint constraintWithItem:self.loader
+                                                        attribute:NSLayoutAttributeHeight
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:nil
+                                                        attribute:NSLayoutAttributeNotAnAttribute
+                                                       multiplier:1.f
+                                                         constant:50.f
+                            ]];
+    [constraints addObject:[NSLayoutConstraint constraintWithItem:self.loader
+                                                        attribute:NSLayoutAttributeWidth
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:nil
+                                                        attribute:NSLayoutAttributeNotAnAttribute
+                                                       multiplier:1.f
+                                                         constant:50.f
+                            ]];
+    
+    if (!self.imageViewCenterY) {
+        [self setImageViewCenterY:[NSLayoutConstraint constraintWithItem:self.contentImageView
                                                                attribute:NSLayoutAttributeCenterY
                                                                relatedBy:NSLayoutRelationEqual
                                                                   toItem:self.contentView
@@ -118,9 +172,7 @@
                                                                 constant:0.f
                                    ]];
     }
-    
-    [constraints addObject:self.testImageCenterY];
-
+    [constraints addObject:self.imageViewCenterY];
     [constraints addObject:[NSLayoutConstraint constraintWithItem:self.contentImageView
                                                            attribute:NSLayoutAttributeCenterX
                                                            relatedBy:NSLayoutRelationEqual
@@ -129,7 +181,6 @@
                                                           multiplier:1.f
                                                             constant:0.f
                                ]];
-    
     self.imageViewHeightConstraint =[NSLayoutConstraint constraintWithItem:self.contentImageView
                                                         attribute:NSLayoutAttributeHeight
                                                         relatedBy:NSLayoutRelationEqual
@@ -138,9 +189,7 @@
                                                        multiplier:1.f
                                                          constant:0.f
                             ];
-    
     [constraints addObject:self.imageViewHeightConstraint];
-    
     self.imageViewWidthConstratint = [NSLayoutConstraint constraintWithItem:self.contentImageView
                                                         attribute:NSLayoutAttributeWidth
                                                         relatedBy:NSLayoutRelationEqual
@@ -149,16 +198,48 @@
                                                        multiplier:1.f
                                                          constant:0.f
                             ];
-    
     [constraints addObject:self.imageViewWidthConstratint];
     
     
     
+    [constraints addObject:[NSLayoutConstraint constraintWithItem:self.gifTagView
+                                                        attribute:NSLayoutAttributeCenterX
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.contentView
+                                                        attribute:NSLayoutAttributeCenterX
+                                                       multiplier:1.f
+                                                         constant:0.f
+                            ]];
+    
+    [constraints addObject:[NSLayoutConstraint constraintWithItem:self.gifTagView
+                                                        attribute:NSLayoutAttributeTop
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.contentView
+                                                        attribute:NSLayoutAttributeTop
+                                                       multiplier:1.f
+                                                         constant:0.f
+                            ]];
+    
+    [constraints addObject:[NSLayoutConstraint constraintWithItem:self.gifTagView
+                                                        attribute:NSLayoutAttributeHeight
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:nil
+                                                        attribute:NSLayoutAttributeNotAnAttribute
+                                                       multiplier:1.f
+                                                         constant:20.f
+                            ]];
+    
+    [constraints addObject:[NSLayoutConstraint constraintWithItem:self.gifTagView
+                                                        attribute:NSLayoutAttributeWidth
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:nil
+                                                        attribute:NSLayoutAttributeNotAnAttribute
+                                                       multiplier:1.f
+                                                         constant:50.f
+                                   ]];
     
     return [constraints copy];
 }
-
-
 
 
 #pragma Mark Helpers ----
@@ -168,10 +249,10 @@
 }
 
 -(CGFloat)calculateImageYOffsetWithPercent:(CGFloat)percent{
-//    adjust % to correct scrolling
+//    adjust % to correct scrolling direction
     percent = -percent;
     
-    CGFloat imageOffestAmount = percent * (self.contentImageView.frame.size.height/2);
+    CGFloat imageOffestAmount = percent * (self.contentImageView.frame.size.height/3);
     return imageOffestAmount;
 }
 
@@ -185,36 +266,66 @@
     [self setNeedsUpdateConstraints];
 }
 
+-(void)startLoader{
+    [self.loader startAnimating];
+    [UIView animateWithDuration:.2f
+                     animations:^{
+                         self.loader.alpha = 1.f;
+                         self.loader.transform = self.baseLoaderTransform;
+                     } completion:nil];
+}
+
+-(void)pauseLoader{
+    [self.loader stopAnimating];
+    [UIView animateWithDuration:.2f
+                     animations:^{
+                         self.loader.alpha = 0.f;
+                         self.loader.transform = CGAffineTransformScale(self.loader.transform, .4, .4);
+                     } completion:nil];
+}
+
 #pragma Mark Setters/Getters ----
 
 -(void)setCurrentImageYOffset:(CGFloat)currentImageYOffset{
     _currentImageYOffset = currentImageYOffset;
-    self.testImageCenterY.constant = currentImageYOffset;
+    self.imageViewCenterY.constant = currentImageYOffset;
 }
 
 -(void)setItem:(TGItem *)item{
     _item = item;
     [self requestImage];
     [self setVoteDisplay:item.voteType];
+    self.gifTagView.hidden = !self.item.galleryImage.animated;
 }
 
 
 #pragma Mark Requests ----
 
 -(void)requestImage{
-    [[ImageService sharedSingleton] getBestImageForItem:self.item OnComplete:^(NSObject *image) {
-        if(image){
-            if ([image isKindOfClass:[UIImage class]]) {
-                UIImage* staticImage = (UIImage*)image;
-                self.contentImageView.image = staticImage;
-                [self adjustConstraintsForNewImageSize:staticImage.size];
-            }else{
-                FLAnimatedImage* animatedImage = (FLAnimatedImage*)image;
-                self.contentImageView.animatedImage = animatedImage;
-                [self adjustConstraintsForNewImageSize:animatedImage.size];
+    
+    [self startLoader];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [[ImageService sharedSingleton] getBestImageForItem:self.item OnComplete:^(NSObject *image) {
+            if(image){
+                if ([image isKindOfClass:[UIImage class]]) {
+                    UIImage* staticImage = (UIImage*)image;
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        self.contentImageView.image = staticImage;
+                        [self adjustConstraintsForNewImageSize:staticImage.size];
+                        [self pauseLoader];
+                    });
+                }else{
+                    FLAnimatedImage* animatedImage = (FLAnimatedImage*)image;
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        self.contentImageView.animatedImage = animatedImage;
+                        [self adjustConstraintsForNewImageSize:animatedImage.size];
+                        [self pauseLoader];
+                    });
+                }
             }
-        }
-    }];
+        }];
+    });
 }
 
 
