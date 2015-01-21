@@ -298,7 +298,7 @@
     [self startLoader];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [[TGImageService sharedSingleton] getBestImageForItem:self.item OnComplete:^(NSObject *image) {
+        [[TGImageService sharedInstance] getBestImageForItem:self.item OnComplete:^(NSObject *image) {
             if(image){
                 if ([image isKindOfClass:[UIImage class]]) {
                     UIImage* staticImage = (UIImage*)image;

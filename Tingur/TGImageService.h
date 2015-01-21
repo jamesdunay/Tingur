@@ -11,7 +11,7 @@
 
 @interface TGImageService : NSObject
 
-+ (TGImageService *)sharedSingleton;
++ (TGImageService *)sharedInstance;
 
 @property(nonatomic) NSInteger currentPage;
 @property(nonatomic, strong)NSArray* items;

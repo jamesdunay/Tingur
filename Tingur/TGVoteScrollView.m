@@ -39,7 +39,7 @@
         self.right = [[UIImageView alloc] init];
         self.right.translatesAutoresizingMaskIntoConstraints = NO;
         self.right.backgroundColor = [UIColor colorWithRed:33.f/255.f green:211.f/255.f blue:17.f/255.f alpha:1.f];
-        self.right.alpha = .85f;
+        self.right.alpha = .8f;
         [self addSubview:self.right];
         
         self.upVoteLabel = [[UILabel alloc] init];
@@ -47,7 +47,7 @@
         self.upVoteLabel.font = [UIFont boldSystemFontOfSize:9];
         self.upVoteLabel.translatesAutoresizingMaskIntoConstraints = NO;
         self.upVoteLabel.textAlignment = NSTextAlignmentLeft;
-        self.upVoteLabel.textColor = [UIColor colorWithRed:200.f/255.f green:211.f/255.f blue:200.f/255.f alpha:1.f];
+        self.upVoteLabel.textColor = [UIColor colorWithRed:10.f/255.f green:35.f/255.f blue:15.f/255.f alpha:1.f];
         [self.right addSubview:self.upVoteLabel];
         
         self.downVoteLabel = [[UILabel alloc] init];

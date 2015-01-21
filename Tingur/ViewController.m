@@ -56,7 +56,7 @@ static CGFloat defaultCellHeight = 120.f;
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if ([[TGImageService sharedSingleton] shouldUpdateData:indexPath.row]) {
+    if ([[TGImageService sharedInstance] shouldUpdateData:indexPath.row]) {
         [self getNewPage];
     }
     
@@ -128,7 +128,7 @@ static CGFloat defaultCellHeight = 120.f;
 }
 
 -(void)getNewPage{
-    [[TGImageService sharedSingleton] getNextPageOnComplete:^(NSArray *items) {
+    [[TGImageService sharedInstance] getNextPageOnComplete:^(NSArray *items) {
         self.items = items;
         [self.tableView reloadData];
     }];

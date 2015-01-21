@@ -19,7 +19,7 @@ static TGImageService *sImageService;
 
 @implementation TGImageService
 
-+ (TGImageService *)sharedSingleton {
++ (TGImageService *)sharedInstance {
     return sImageService;
 }
 
@@ -89,7 +89,7 @@ static TGImageService *sImageService;
                                                          }];
             }
         return;
-    }else{
+    }else{        
         [[TGRestEngine sharedSingleton] getStaticImageWithURL:item.thumbnailURL
                                                  onComplete:^(UIImage *image) {
                                                      complete(image);
