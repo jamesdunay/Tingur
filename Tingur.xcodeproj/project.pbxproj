@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		062BF587EF3F12CDF26902CE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ADA37885FE8960A16667FB6 /* libPods.a */; };
-		2947B20F1A699A77002BB726 /* RestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2947B20E1A699A77002BB726 /* RestEngine.m */; };
-		2947B2121A69A05E002BB726 /* ImageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2947B2111A69A05E002BB726 /* ImageService.m */; };
+		2947B20F1A699A77002BB726 /* TGRestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2947B20E1A699A77002BB726 /* TGRestEngine.m */; };
+		2947B2121A69A05E002BB726 /* TGImageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2947B2111A69A05E002BB726 /* TGImageService.m */; };
 		2947B2151A69A4F0002BB726 /* TGItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2947B2141A69A4F0002BB726 /* TGItem.m */; };
 		29F998421A6987D70027AD5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F998411A6987D70027AD5A /* main.m */; };
 		29F998451A6987D70027AD5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F998441A6987D70027AD5A /* AppDelegate.m */; };
@@ -22,8 +22,6 @@
 		72183F6A1A6C66D600479D93 /* test3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72183F691A6C66D600479D93 /* test3@2x.png */; };
 		727D63A81A6B80BD0052A946 /* TGTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 727D63A71A6B80BD0052A946 /* TGTableViewCell.m */; };
 		72CBAA0C1A6CDB7C00291375 /* TGVoteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CBAA0B1A6CDB7C00291375 /* TGVoteScrollView.m */; };
-		72FCCD031A6E12180032FD47 /* right_shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FCCD011A6E12180032FD47 /* right_shadow@2x.png */; };
-		72FCCD041A6E12180032FD47 /* left_shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FCCD021A6E12180032FD47 /* left_shadow@2x.png */; };
 		72FCCD071A6EED730032FD47 /* TGGifTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FCCD061A6EED730032FD47 /* TGGifTagView.m */; };
 		72FD0B751A6F2A1700B9E067 /* loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = 72FD0B741A6F2A1700B9E067 /* loader.gif */; };
 		72FD0B771A6F2EFC00B9E067 /* loader2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 72FD0B761A6F2EFC00B9E067 /* loader2.gif */; };
@@ -42,10 +40,10 @@
 
 /* Begin PBXFileReference section */
 		1ADA37885FE8960A16667FB6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2947B20D1A699A77002BB726 /* RestEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestEngine.h; sourceTree = "<group>"; };
-		2947B20E1A699A77002BB726 /* RestEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestEngine.m; sourceTree = "<group>"; };
-		2947B2101A69A05E002BB726 /* ImageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageService.h; sourceTree = "<group>"; };
-		2947B2111A69A05E002BB726 /* ImageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageService.m; sourceTree = "<group>"; };
+		2947B20D1A699A77002BB726 /* TGRestEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGRestEngine.h; sourceTree = "<group>"; };
+		2947B20E1A699A77002BB726 /* TGRestEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGRestEngine.m; sourceTree = "<group>"; };
+		2947B2101A69A05E002BB726 /* TGImageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGImageService.h; sourceTree = "<group>"; };
+		2947B2111A69A05E002BB726 /* TGImageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGImageService.m; sourceTree = "<group>"; };
 		2947B2131A69A4F0002BB726 /* TGItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGItem.h; sourceTree = "<group>"; };
 		2947B2141A69A4F0002BB726 /* TGItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGItem.m; sourceTree = "<group>"; };
 		29F9983C1A6987D70027AD5A /* Tingur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tingur.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,8 +65,6 @@
 		727D63A71A6B80BD0052A946 /* TGTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGTableViewCell.m; sourceTree = "<group>"; };
 		72CBAA0A1A6CDB7C00291375 /* TGVoteScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGVoteScrollView.h; sourceTree = "<group>"; };
 		72CBAA0B1A6CDB7C00291375 /* TGVoteScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGVoteScrollView.m; sourceTree = "<group>"; };
-		72FCCD011A6E12180032FD47 /* right_shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_shadow@2x.png"; sourceTree = "<group>"; };
-		72FCCD021A6E12180032FD47 /* left_shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_shadow@2x.png"; sourceTree = "<group>"; };
 		72FCCD051A6EED730032FD47 /* TGGifTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGGifTagView.h; sourceTree = "<group>"; };
 		72FCCD061A6EED730032FD47 /* TGGifTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGGifTagView.m; sourceTree = "<group>"; };
 		72FD0B741A6F2A1700B9E067 /* loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loader.gif; sourceTree = "<group>"; };
@@ -126,10 +122,10 @@
 		2947B2171A69A73F002BB726 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				2947B2101A69A05E002BB726 /* ImageService.h */,
-				2947B2111A69A05E002BB726 /* ImageService.m */,
-				2947B20D1A699A77002BB726 /* RestEngine.h */,
-				2947B20E1A699A77002BB726 /* RestEngine.m */,
+				2947B2101A69A05E002BB726 /* TGImageService.h */,
+				2947B2111A69A05E002BB726 /* TGImageService.m */,
+				2947B20D1A699A77002BB726 /* TGRestEngine.h */,
+				2947B20E1A699A77002BB726 /* TGRestEngine.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -220,8 +216,6 @@
 				72183F691A6C66D600479D93 /* test3@2x.png */,
 				72183F671A6C665800479D93 /* test2@2x.png */,
 				72183F651A6C641500479D93 /* test@2x.png */,
-				72FCCD011A6E12180032FD47 /* right_shadow@2x.png */,
-				72FCCD021A6E12180032FD47 /* left_shadow@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -314,11 +308,9 @@
 				29F998501A6987D70027AD5A /* LaunchScreen.xib in Resources */,
 				29F9984D1A6987D70027AD5A /* Images.xcassets in Resources */,
 				72183F681A6C665800479D93 /* test2@2x.png in Resources */,
-				72FCCD041A6E12180032FD47 /* left_shadow@2x.png in Resources */,
 				72FD0B751A6F2A1700B9E067 /* loader.gif in Resources */,
 				72FD0B791A6F344C00B9E067 /* loader3.gif in Resources */,
 				72183F6A1A6C66D600479D93 /* test3@2x.png in Resources */,
-				72FCCD031A6E12180032FD47 /* right_shadow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,9 +367,9 @@
 				72FCCD071A6EED730032FD47 /* TGGifTagView.m in Sources */,
 				29F998451A6987D70027AD5A /* AppDelegate.m in Sources */,
 				29F998421A6987D70027AD5A /* main.m in Sources */,
-				2947B2121A69A05E002BB726 /* ImageService.m in Sources */,
+				2947B2121A69A05E002BB726 /* TGImageService.m in Sources */,
 				2947B2151A69A4F0002BB726 /* TGItem.m in Sources */,
-				2947B20F1A699A77002BB726 /* RestEngine.m in Sources */,
+				2947B20F1A699A77002BB726 /* TGRestEngine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

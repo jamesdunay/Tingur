@@ -10,7 +10,7 @@
 #import "TGVoteScrollView.h"
 #import "FLAnimatedImage.h"
 #import "FLAnimatedImageView.h"
-#import "ImageService.h"
+#import "TGImageService.h"
 #import "TGGifTagView.h"
 
 @interface TGTableViewCell()
@@ -51,7 +51,6 @@
         
         self.scrollView = [[TGVoteScrollView alloc] init];
         self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
-//        self.scrollView.canCancelContentTouches = YES;
         self.scrollView.autoresizesSubviews = NO;
         self.scrollView.showsHorizontalScrollIndicator = NO;
         self.scrollView.showsVerticalScrollIndicator = NO;
@@ -96,9 +95,7 @@
     self.scrollView.contentSize = CGSizeMake(self.frame.size.width * 3, self.frame.size.height - 10);
 }
 
-
 -(void)updateConstraints{
-    
     if (!self.hasSetInitialConstraints) {
         [self.contentView addConstraints:[self defaultConstraints]];
         self.hasSetInitialConstraints = YES;
@@ -108,8 +105,6 @@
 }
 
 -(NSArray*)defaultConstraints{
-    
-    //remember you got 5px ontop and bottom
     
     NSMutableArray* constraints = [[NSMutableArray alloc] init];
     
@@ -257,12 +252,9 @@
 }
 
 -(void)adjustConstraintsForNewImageSize:(CGSize)imageSize{
-    NSLog(@"Size : %@", NSStringFromCGSize(imageSize));
     CGFloat imageViewHeight = (320.f/imageSize.width) * imageSize.height;
-    
     self.imageViewHeightConstraint.constant = imageViewHeight;
     self.imageViewWidthConstratint.constant = 320.f;
-    
     [self setNeedsUpdateConstraints];
 }
 
@@ -306,7 +298,7 @@
     [self startLoader];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [[ImageService sharedSingleton] getBestImageForItem:self.item OnComplete:^(NSObject *image) {
+        [[TGImageService sharedSingleton] getBestImageForItem:self.item OnComplete:^(NSObject *image) {
             if(image){
                 if ([image isKindOfClass:[UIImage class]]) {
                     UIImage* staticImage = (UIImage*)image;

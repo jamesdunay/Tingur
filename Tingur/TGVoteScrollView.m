@@ -32,13 +32,14 @@
         self.left = [[UIImageView alloc] init];
         self.left.translatesAutoresizingMaskIntoConstraints = NO;
         self.left.backgroundColor = [UIColor blackColor];
-//        self.left.image = [UIImage imageNamed:@"left_shadow.png"];
+        self.left.backgroundColor = [UIColor colorWithRed:51.f/255.f green:12.f/255.f blue:20.f/255.f alpha:1.f];
+        self.left.alpha = .85f;
         [self addSubview:self.left];
         
         self.right = [[UIImageView alloc] init];
         self.right.translatesAutoresizingMaskIntoConstraints = NO;
-        self.right.backgroundColor = [UIColor blackColor];
-//        self.right.image = [UIImage imageNamed:@"right_shadow.png"];
+        self.right.backgroundColor = [UIColor colorWithRed:33.f/255.f green:211.f/255.f blue:17.f/255.f alpha:1.f];
+        self.right.alpha = .85f;
         [self addSubview:self.right];
         
         self.upVoteLabel = [[UILabel alloc] init];
@@ -46,7 +47,7 @@
         self.upVoteLabel.font = [UIFont boldSystemFontOfSize:9];
         self.upVoteLabel.translatesAutoresizingMaskIntoConstraints = NO;
         self.upVoteLabel.textAlignment = NSTextAlignmentLeft;
-        self.upVoteLabel.textColor = [UIColor greenColor];
+        self.upVoteLabel.textColor = [UIColor colorWithRed:200.f/255.f green:211.f/255.f blue:200.f/255.f alpha:1.f];
         [self.right addSubview:self.upVoteLabel];
         
         self.downVoteLabel = [[UILabel alloc] init];
@@ -56,6 +57,8 @@
         self.downVoteLabel.textAlignment = NSTextAlignmentRight;
         self.downVoteLabel.textColor = [UIColor redColor];
         [self.left addSubview:self.downVoteLabel];
+    
+//       ^^ Future Improvment -- Could be cool to see some blur under the bars for both left and right views
         
     }
     return self;
@@ -97,7 +100,7 @@
                                                            toItem:nil
                                                         attribute:NSLayoutAttributeNotAnAttribute
                                                        multiplier:1.f
-                                                         constant:20.f
+                                                         constant:35.f
                             ]];
     
     [constraints addObject:[NSLayoutConstraint constraintWithItem:self.right
@@ -115,7 +118,7 @@
                                                            toItem:nil
                                                         attribute:NSLayoutAttributeNotAnAttribute
                                                        multiplier:1.f
-                                                         constant:20.f
+                                                         constant:35.f
                             ]];
     
     return [constraints copy];
@@ -224,14 +227,16 @@
     CGFloat pagePostion = scrollView.contentOffset.x/320;
     CGFloat adjustment = ((pagePostion - 1) * 320)/1.4f;
     
+//    Future Improvemnt -- align text to is far side, (left -> align left), then position the outer edge to the desired position.
+    
     if (pagePostion > 1.f) {
         self.upVoteXPosLayoutAttribute.constant = adjustment;
-//       ^^ + 24 font size adjustment
+//       ^^ Creates velocity effect for sliding text
     }
     
     if (pagePostion < 1.f) {
         self.downVoteXPosLayoutAttribute.constant = adjustment;
-//       ^^ + 24 font size adjustment
+//       ^^ Creates velocity effect for sliding text
     }
 }
 

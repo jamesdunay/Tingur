@@ -20,6 +20,7 @@ typedef NS_ENUM(NSInteger, TGVoteType) {
 
 @property(nonatomic, strong)IMGGalleryImage* galleryImage;
 @property(nonatomic) BOOL isOpened;
+@property(nonatomic) BOOL hasBeenShownToUser;
 @property(nonatomic) TGVoteType voteType;
 
 -(id)initWithGalleryImage:(IMGGalleryImage*)galleryImage;
@@ -28,6 +29,6 @@ typedef NS_ENUM(NSInteger, TGVoteType) {
 -(BOOL)imageIsAnimatedAndGif;
 -(BOOL)fullSizedImageIsInCache;
 
--(NSURL*)thumbNailURL;
+-(NSURL*)thumbnailURL;
 
 @end

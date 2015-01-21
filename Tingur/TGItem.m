@@ -26,7 +26,7 @@
     self.isOpened = self.isOpened ? NO : YES;
 }
 
--(NSURL*)thumbNailURL{
+-(NSURL*)thumbnailURL{    
     return [self.galleryImage URLWithSize:IMGLargeThumbnailSize];
 }
 

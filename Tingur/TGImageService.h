@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "TGItem.h"
 
-@interface ImageService : NSObject
+@interface TGImageService : NSObject
 
-+ (ImageService *)sharedSingleton;
++ (TGImageService *)sharedSingleton;
 
 @property(nonatomic) NSInteger currentPage;
 @property(nonatomic, strong)NSArray* items;

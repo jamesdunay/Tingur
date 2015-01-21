@@ -9,18 +9,18 @@
 #define imgurClientID @"aaf51e9b0424644"
 
 #import "IMGGalleryRequest.h"
-#import "RestEngine.h"
+#import "TGRestEngine.h"
 
-static RestEngine *sRestEngine;
+static TGRestEngine *sRestEngine;
 
-@implementation RestEngine
+@implementation TGRestEngine
 
-+ (RestEngine *)sharedSingleton {
++ (TGRestEngine *)sharedSingleton {
     return sRestEngine;
 }
 
 + (void)initialize {
-    sRestEngine = [RestEngine new];
+    sRestEngine = [TGRestEngine new];
     [IMGSession anonymousSessionWithClientID:imgurClientID withDelegate:sRestEngine];
 }
 
@@ -33,7 +33,7 @@ static RestEngine *sRestEngine;
 }
 
 -(void)getStaticImageWithURL:(NSURL*)url onComplete:(void(^)(UIImage* image))complete onFailure:(void(^)(void))failure{
-    
+
     [[SDWebImageManager sharedManager] downloadImageWithURL:url options:0
                                                    progress:^(NSInteger receivedSize, NSInteger expectedSize){
                                                        
@@ -43,6 +43,7 @@ static RestEngine *sRestEngine;
 //                                                      ^^ Could remove image from stack, leave it alone for now.
                                                            complete(image);
                                                        }else{
+                                                           NSLog(@"Failed on %@", url);
                                                            failure();
                                                        }
                                                    }];
