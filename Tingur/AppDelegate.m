@@ -5,6 +5,13 @@
 //  Created by james.dunay on 1/16/15.
 //  Copyright (c) 2015 James.Dunay. All rights reserved.
 //
+// --------- WELCOME TO TINGUR ---------
+//  --  Tinder browsing experience on Imgur
+//  --  Scrolling / Parallax-Bananza  --  Quick preview while browsing -- Cell image content height dictates the speed of the parallax
+//  -----------------  Tap to Expand  --  Make the image/gif full screen, loads the high resolution image or gif
+//  -----------------  Swipe to Vote  --  Cells, both expanded and minimized, can be swiped to vote. If cell is expanded it will advance you to the next image (thanks, Tinder.)
+//  -----------------------  Gif Tag  --  Images that are gifs will have a gif tag, encouraging you to tap and view
+
 
 #import "AppDelegate.h"
 #import "ViewController.h"
