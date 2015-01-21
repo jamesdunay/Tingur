@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		062BF587EF3F12CDF26902CE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ADA37885FE8960A16667FB6 /* libPods.a */; };
-		2947B20F1A699A77002BB726 /* RestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2947B20E1A699A77002BB726 /* RestEngine.m */; };
-		2947B2121A69A05E002BB726 /* ImageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2947B2111A69A05E002BB726 /* ImageService.m */; };
+		2947B20F1A699A77002BB726 /* TGRestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2947B20E1A699A77002BB726 /* TGRestEngine.m */; };
+		2947B2121A69A05E002BB726 /* TGImageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2947B2111A69A05E002BB726 /* TGImageService.m */; };
 		2947B2151A69A4F0002BB726 /* TGItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2947B2141A69A4F0002BB726 /* TGItem.m */; };
 		29F998421A6987D70027AD5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F998411A6987D70027AD5A /* main.m */; };
 		29F998451A6987D70027AD5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F998441A6987D70027AD5A /* AppDelegate.m */; };
@@ -28,6 +28,7 @@
 		72FD0B751A6F2A1700B9E067 /* loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = 72FD0B741A6F2A1700B9E067 /* loader.gif */; };
 		72FD0B771A6F2EFC00B9E067 /* loader2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 72FD0B761A6F2EFC00B9E067 /* loader2.gif */; };
 		72FD0B791A6F344C00B9E067 /* loader3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 72FD0B781A6F344C00B9E067 /* loader3.gif */; };
+		72FD0B7F1A6F979900B9E067 /* UIImage+Color_Modifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FD0B7E1A6F979900B9E067 /* UIImage+Color_Modifications.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,10 +43,10 @@
 
 /* Begin PBXFileReference section */
 		1ADA37885FE8960A16667FB6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2947B20D1A699A77002BB726 /* RestEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestEngine.h; sourceTree = "<group>"; };
-		2947B20E1A699A77002BB726 /* RestEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestEngine.m; sourceTree = "<group>"; };
-		2947B2101A69A05E002BB726 /* ImageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageService.h; sourceTree = "<group>"; };
-		2947B2111A69A05E002BB726 /* ImageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageService.m; sourceTree = "<group>"; };
+		2947B20D1A699A77002BB726 /* TGRestEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGRestEngine.h; sourceTree = "<group>"; };
+		2947B20E1A699A77002BB726 /* TGRestEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGRestEngine.m; sourceTree = "<group>"; };
+		2947B2101A69A05E002BB726 /* TGImageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGImageService.h; sourceTree = "<group>"; };
+		2947B2111A69A05E002BB726 /* TGImageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGImageService.m; sourceTree = "<group>"; };
 		2947B2131A69A4F0002BB726 /* TGItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGItem.h; sourceTree = "<group>"; };
 		2947B2141A69A4F0002BB726 /* TGItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGItem.m; sourceTree = "<group>"; };
 		29F9983C1A6987D70027AD5A /* Tingur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tingur.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +75,8 @@
 		72FD0B741A6F2A1700B9E067 /* loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loader.gif; sourceTree = "<group>"; };
 		72FD0B761A6F2EFC00B9E067 /* loader2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loader2.gif; sourceTree = "<group>"; };
 		72FD0B781A6F344C00B9E067 /* loader3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loader3.gif; sourceTree = "<group>"; };
+		72FD0B7D1A6F979900B9E067 /* UIImage+Color_Modifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color_Modifications.h"; sourceTree = "<group>"; };
+		72FD0B7E1A6F979900B9E067 /* UIImage+Color_Modifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color_Modifications.m"; sourceTree = "<group>"; };
 		8A1A72B0AD8157B19170E38E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		99AA13D187147524B852B0DE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,10 +129,12 @@
 		2947B2171A69A73F002BB726 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				2947B2101A69A05E002BB726 /* ImageService.h */,
-				2947B2111A69A05E002BB726 /* ImageService.m */,
-				2947B20D1A699A77002BB726 /* RestEngine.h */,
-				2947B20E1A699A77002BB726 /* RestEngine.m */,
+				72FD0B7D1A6F979900B9E067 /* UIImage+Color_Modifications.h */,
+				72FD0B7E1A6F979900B9E067 /* UIImage+Color_Modifications.m */,
+				2947B2101A69A05E002BB726 /* TGImageService.h */,
+				2947B2111A69A05E002BB726 /* TGImageService.m */,
+				2947B20D1A699A77002BB726 /* TGRestEngine.h */,
+				2947B20E1A699A77002BB726 /* TGRestEngine.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -375,9 +380,10 @@
 				72FCCD071A6EED730032FD47 /* TGGifTagView.m in Sources */,
 				29F998451A6987D70027AD5A /* AppDelegate.m in Sources */,
 				29F998421A6987D70027AD5A /* main.m in Sources */,
-				2947B2121A69A05E002BB726 /* ImageService.m in Sources */,
+				2947B2121A69A05E002BB726 /* TGImageService.m in Sources */,
 				2947B2151A69A4F0002BB726 /* TGItem.m in Sources */,
-				2947B20F1A699A77002BB726 /* RestEngine.m in Sources */,
+				2947B20F1A699A77002BB726 /* TGRestEngine.m in Sources */,
+				72FD0B7F1A6F979900B9E067 /* UIImage+Color_Modifications.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

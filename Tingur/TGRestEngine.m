@@ -9,18 +9,18 @@
 #define imgurClientID @"aaf51e9b0424644"
 
 #import "IMGGalleryRequest.h"
-#import "RestEngine.h"
+#import "TGRestEngine.h"
 
-static RestEngine *sRestEngine;
+static TGRestEngine *sRestEngine;
 
-@implementation RestEngine
+@implementation TGRestEngine
 
-+ (RestEngine *)sharedSingleton {
++ (TGRestEngine *)sharedSingleton {
     return sRestEngine;
 }
 
 + (void)initialize {
-    sRestEngine = [RestEngine new];
+    sRestEngine = [TGRestEngine new];
     [IMGSession anonymousSessionWithClientID:imgurClientID withDelegate:sRestEngine];
 }
 

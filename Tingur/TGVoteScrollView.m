@@ -7,6 +7,7 @@
 //
 
 #import "TGVoteScrollView.h"
+#import "ColorWithHexString.h"
 
 @interface TGVoteScrollView()
 
@@ -32,13 +33,17 @@
         self.left = [[UIImageView alloc] init];
         self.left.translatesAutoresizingMaskIntoConstraints = NO;
         self.left.backgroundColor = [UIColor blackColor];
+        self.left.alpha = .9f;
 //        self.left.image = [UIImage imageNamed:@"left_shadow.png"];
         [self addSubview:self.left];
         
         self.right = [[UIImageView alloc] init];
         self.right.translatesAutoresizingMaskIntoConstraints = NO;
-        self.right.backgroundColor = [UIColor blackColor];
+        
+//        1C3A24
+        self.right.backgroundColor = [UIColor ];
 //        self.right.image = [UIImage imageNamed:@"right_shadow.png"];
+        self.right.alpha = .7f;
         [self addSubview:self.right];
         
         self.upVoteLabel = [[UILabel alloc] init];
@@ -220,18 +225,18 @@
 
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-
     CGFloat pagePostion = scrollView.contentOffset.x/320;
     CGFloat adjustment = ((pagePostion - 1) * 320)/1.4f;
-    
+//   ^^ 1.4f is pretty arbitrary, depends on font size
+//   Future Improvemnt -- align text to is far side, (left -> align left), then position the outer edge to the desired position.
+
     if (pagePostion > 1.f) {
         self.upVoteXPosLayoutAttribute.constant = adjustment;
-//       ^^ + 24 font size adjustment
+//        ^^ Creates velocity effect for text movments
     }
-    
     if (pagePostion < 1.f) {
         self.downVoteXPosLayoutAttribute.constant = adjustment;
-//       ^^ + 24 font size adjustment
+//        ^^ Creates velocity effect for text movments
     }
 }
 

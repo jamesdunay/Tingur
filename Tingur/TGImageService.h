@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "TGItem.h"
 
-@interface ImageService : NSObject
+@interface TGImageService : NSObject
 
-+ (ImageService *)sharedSingleton;
++ (TGImageService *)sharedSingleton;
 
 @property(nonatomic) NSInteger currentPage;
 @property(nonatomic, strong)NSArray* items;
@@ -20,5 +20,6 @@
 
 -(void)getNextPageOnComplete:(void(^)(NSArray* items))complete;
 -(void)getBestImageForItem:(TGItem*)item OnComplete:(void(^)(NSObject* image))complete;
+-(BOOL)itemHasAtleastOneCachedImage:(TGItem*)item;
 
 @end

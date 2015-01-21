@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "ImageService.h"
+#import "TGImageService.h"
 
 #import "TGTableViewCell.h"
 #import "TGItem.h"
@@ -57,15 +57,30 @@ static CGFloat defaultCellHeight = 120.f;
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if ([[ImageService sharedSingleton] shouldUpdateData:indexPath.row]) {
+    if ([[TGImageService sharedSingleton] shouldUpdateData:indexPath.row]) {
         [self getNewPage];
     }
     
     __block TGTableViewCell *cell = (TGTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"cell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
+    cell.restingFrame = cell.frame;
+    
     TGItem* item = self.items[indexPath.row];
     cell.item = item;
+    
+    if (!item.hasBeenShownToUser) {
+        cell.frame = CGRectMake(0, cell.frame.origin.y + 150, cell.frame.size.width, cell.frame.size.height);
+        cell.alpha = 0.f;
+        [UIView animateWithDuration:.4f delay:0.1f
+                            options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionAllowUserInteraction
+                         animations:^{
+                             cell.frame = cell.restingFrame;
+                             cell.alpha = 1.f;
+                       } completion:nil];
+        
+        item.hasBeenShownToUser = YES;
+    }
     
     [cell setOnCellTap:^{
         
@@ -94,7 +109,9 @@ static CGFloat defaultCellHeight = 120.f;
         [item toggleOpened];
                 
 //      tableView.scrollEnabled = NO;
-//      ^^ Disable scrolling to allow scrollview for image content
+//      ^^ Future improvment -- Disable scrolling on tableview when cell is opened
+//      This would allow the cell to contain a second scrollview, containing the image.
+//      Allowing the user to browse the full image height (currently it's a bit off when browsing a large image
         
     }];
     
@@ -111,8 +128,9 @@ static CGFloat defaultCellHeight = 120.f;
     return cell;
 }
 
+
 -(void)getNewPage{
-    [[ImageService sharedSingleton] getNextPageOnComplete:^(NSArray *items) {
+    [[TGImageService sharedSingleton] getNextPageOnComplete:^(NSArray *items) {
         self.items = items;
         [self.tableView reloadData];
     }];

@@ -10,7 +10,7 @@
 #import "TGVoteScrollView.h"
 #import "FLAnimatedImage.h"
 #import "FLAnimatedImageView.h"
-#import "ImageService.h"
+#import "TGImageService.h"
 #import "TGGifTagView.h"
 
 @interface TGTableViewCell()
@@ -28,6 +28,8 @@
 
 @property(nonatomic) CGFloat currentImageYOffset;
 @property(nonatomic)BOOL hasSetInitialConstraints;
+
+@property(nonatomic)BOOL needsIntroAnimation;
 
 @end
 
@@ -296,6 +298,7 @@
     [self requestImage];
     [self setVoteDisplay:item.voteType];
     self.gifTagView.hidden = !self.item.galleryImage.animated;
+//    self.needsIntroAnimation = ![[TGImageService sharedSingleton] itemHasAtleastOneCachedImage:item];
 }
 
 
@@ -306,7 +309,7 @@
     [self startLoader];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [[ImageService sharedSingleton] getBestImageForItem:self.item OnComplete:^(NSObject *image) {
+        [[TGImageService sharedSingleton] getBestImageForItem:self.item OnComplete:^(NSObject *image) {
             if(image){
                 if ([image isKindOfClass:[UIImage class]]) {
                     UIImage* staticImage = (UIImage*)image;
